@@ -2,7 +2,7 @@ import PyPDF2
 import pyttsx3
 
 # path of the PDF file (macOS compatible path)
-path = open('pdfs/gls_feb2023.pdf', 'rb')
+path = open('pdfs/aiaeng.pdf', 'rb')
 
 # creating a PdfFileReader object
 pdfReader = PyPDF2.PdfReader(path)
@@ -10,7 +10,19 @@ pdfReader = PyPDF2.PdfReader(path)
 # initialize text-to-speech once (more efficient)
 speak = pyttsx3.init()
 
-start_page = 2
+# Set female voice (macOS default female voice is Samantha)
+voices = speak.getProperty('voices')
+
+for voice in voices:
+    if 'rishi' in voice.name.lower() or 'female' in voice.name.lower():
+        speak.setProperty('voice', voice.id)
+        break
+
+
+# Reduce speaking speed (default is 200, lower is slower)
+speak.setProperty('rate', 180)
+
+start_page = 3
 end_page = 17
 
 resp = 'y'
