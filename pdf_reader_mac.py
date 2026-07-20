@@ -2,12 +2,12 @@ from pypdf import PdfReader
 import subprocess
 
 # page range
-start_page = 26
-end_page = 356
+start_page = 10
+end_page = 316
 resp = 'y'
 
 # Open PDF safely
-with open('pdfs/Books/annas-arch-b1e0c9675943.pdf', 'rb') as file:
+with open('pdfs/Books/One Up On Wall Street_ How To Use What You Already Know To Make Money In The Market.pdf', 'rb') as file:
     pdf_reader = PdfReader(file)
 
     while start_page < end_page:
